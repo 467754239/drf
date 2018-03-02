@@ -50,6 +50,16 @@ Django REST框架是一个用于构建Web API的功能强大且灵活的工具�
 
 * 序列化
 
+    一个model来定义一个serializer;
+    如一个model 叫PersonModel(name, age)，PersonSerilizer 之后会是{name: monkey, age: 18};
+    同理接收到的POST data，可以通过PersonSerializer(POST.data)来重建一个Person。
+
+    1> serializer
+    instance -> json
+    
+    2> deserializer
+    json -> instance
+
 - serializers.Serializer
 - serializers.ModelSerializer
 - serializers.HyperlinkedModelSerializer
@@ -83,7 +93,19 @@ class-based-views
 
 - APIView
 - mixins
+    中文：混入
+    作用：
+        给一个类增加多个功能，这样，在设计类的时候，
+        我们优先考虑通过多重继承来组合多个Mixin的功能，
+        而不是设计多层次的复杂的继承关系。
+    参考：知乎(https://www.zhihu.com/question/20778853)
+        
 - generics
+    
+    from rest_framework import generics
+    generics.GenericAPIView
+    generics.ListCreateAPIView
+    generics.RetrieveUpdateDestroyAPIView
 
 
 * 认证 
